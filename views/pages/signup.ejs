@@ -1,0 +1,38 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="stylesheets/loginSignUp.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navbasic.ejs') %>
+            <main>
+                <div class='container'>
+                    <div class='container-1'>
+                        <div class="text-container">
+                            <h1>Find That Job Today!</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero iste maxime, officiis, quo similique, atque ea libero consequatur placeat pariatur reprehenderit? Culpa distinctio illum asperiores accusantium nisi commodi molestias
+                                laboriosam?
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="container-2">
+                        <div class='container-form'>
+                            <form class="form-signin" method="POST" action="/signup">
+                                <img class="mb-4" src="images/homepage/mainlogo.png" alt="logo" width="270">
+                                <h3 class="h3 mb-3 font-weight-normal">Sing Up</h3>
+                                <label for="inputEmail" class="sr-only">Email address</label>
+                                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <br>
+                                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <br>
+                                <input type="password" name="confirmedPassword" id="confirmedPassword" class="form-control" placeholder="Confirm Password" required>
+                                <br>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                                <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include('../includes/foot.ejs') %>
