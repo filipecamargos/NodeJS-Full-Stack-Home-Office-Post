@@ -7,6 +7,13 @@
     color: #AA2626;
 }
 
+#loginContainer {
+    background-image: url(/images/loginSignUP/workingHomelogin.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+
 .container {
     margin-top: 40px;
     background-image: url(/images/loginSignUP/loginBackground.jpg);
@@ -66,13 +73,6 @@
 
 .container-form .btn {
     width: 100px;
-}
-
-#loginContainer {
-    background-image: url(/images/loginSignUP/workingHomelogin.jpg);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
 }
 
 
