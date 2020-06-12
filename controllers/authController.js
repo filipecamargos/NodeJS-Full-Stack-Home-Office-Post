@@ -27,11 +27,11 @@ exports.getSignUp = (req, res, next) => {
  * POST CONTROLER FOR LOGIN | SING UP
  * ***********************************************/
 //This controller will handle the POST Login Page
-exports.postLogin = (req, res, next) => {
+exports.postSingUp = (req, res, next) => {
     res.redirect('/')
 };
 
 //This controller will handle the POST Login Page
-exports.postSingUp = (req, res, next) => {
+exports.postLogin = (req, res, next) => {
     res.redirect('/')
 };

@@ -27,3 +27,6 @@ const jobSchema = new Schema({
         required: false
     }
 });
+
+//Export the model and give a name to as a parameter this will be your blue print
+module.exports = mongoose.model('Job', jobSchema);
