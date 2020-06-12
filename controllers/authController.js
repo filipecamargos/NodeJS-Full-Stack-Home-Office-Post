@@ -1,3 +1,6 @@
+const bcrypt = require('bcryptjs');
+
+
 /*************************************************
  * GET CONTROLER FOR LOGIN | SING UP
  * ***********************************************/
@@ -8,7 +11,7 @@ exports.getLogin = (req, res, next) => {
         title: 'HOME OFFICE POST | Login',
         home: false,
         login: true,
-        singUp: false
+        singUp: false,
     });
 };
 
@@ -19,7 +22,7 @@ exports.getSignUp = (req, res, next) => {
         title: 'HOME OFFICE POST | Sign Up',
         home: false,
         login: false,
-        singUp: true
+        singUp: true,
     });
 };
 
@@ -28,7 +31,7 @@ exports.getSignUp = (req, res, next) => {
  * ***********************************************/
 //This controller will handle the POST Login Page
 exports.postSingUp = (req, res, next) => {
-    res.redirect('/')
+    res.redirect('/login')
 };
 
 //This controller will handle the POST Login Page

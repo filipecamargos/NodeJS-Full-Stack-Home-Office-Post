@@ -4,6 +4,7 @@
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <li id="<%= login ? 'loginIcon' : ''%>"><a class="sing-incons" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li id="<%= singUp ? 'signInIcon' : ''%>"><a class="sing-incons" href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
     </ul>
