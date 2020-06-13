@@ -55,7 +55,7 @@ exports.getSignUp = (req, res, next) => {
 };
 
 /*************************************************
- * POST LOGIN | SING UP
+ * POST LOGIN | SING UP | LOG OUT
  * ***********************************************/
 //This controller will handle the POST Login Page
 exports.postSignUp = (req, res, next) => {
@@ -181,4 +181,14 @@ exports.postLogin = (req, res, next) => {
             error.httpStatusCode = 500;
             return next(error);
         });
+};
+
+/********************************************
+ * POST for LOG OUT
+ */
+exports.postLogOut = (req, res, next) => {
+    //Detroy the Session
+    req.session.destroy(err => {
+        res.redirect('/');
+    });
 };

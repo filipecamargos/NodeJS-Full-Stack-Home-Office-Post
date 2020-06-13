@@ -67,4 +67,7 @@ router.post('/login', [
     //make to the controler with the proper error messages or clean
     authController.postLogin);
 
+//POST for LogOut
+router.post('/logout', authController.postLogOut);
+
 module.exports = router;
