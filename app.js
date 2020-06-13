@@ -43,7 +43,7 @@ const options = {
 
 //Require the routers
 const errorController = require('./routes/error')
-const mainPagesRoutes = require('./routes/postPages');
+const mainPagesRoutes = require('./routes/routerPages');
 const authRoutes = require('./routes/auth');
 
 
@@ -52,29 +52,24 @@ app.use(express.static(path.join(__dirname, 'public')))
     .set('view engine', 'ejs');
 
 //Section Middleware
-app.use(bodyParser({ extended: false }))
-    .use(
-        session({
-            secret: 'my secret',
-            resave: false,
-            saveUninitialized: false,
-            store: homeofficeSession
-        }));
+app.use(bodyParser({ extended: false }));
+app.use(
+    session({
+        secret: 'Home Job 123',
+        resave: false,
+        saveUninitialized: false,
+        store: homeofficeSession
+    }));
 
-//CSRF Middleware | Flash | USER SECTION
-app.use(csrfProtection)
-    .use(flash())
-    .use((req, res, next) => {
-        if (!req.session.user) {
-            return next();
-        }
-        User.findById(req.session.user._id)
-            .then(user => {
-                req.user = user;
-                next();
-            })
-            .catch(err => console.log(err));
-    });
+
+//CSRF Middleware | Flash 
+app.use(csrfProtection);
+app.use(flash());
+
+/**************************
+ * Note You might need to revise the status for
+ * having the user loggin in a session already
+ */
 
 //CSRF Middleware
 app.use((req, res, next) => {
@@ -85,7 +80,7 @@ app.use((req, res, next) => {
 
 //Main Middleware
 app.use(authRoutes)
-    .use('/', mainPagesRoutes)
+    .use(mainPagesRoutes)
     .use(errorController.error500)
     .use(errorController.get404);
 

@@ -10,3 +10,9 @@ exports.home = (req, res, next) => {
         singUp: false
     });
 };
+
+//Joab Board Controller
+exports.jobBoard = (req, res, next) => {
+    console.log("made")
+    res.render('pages/jobboard');
+}

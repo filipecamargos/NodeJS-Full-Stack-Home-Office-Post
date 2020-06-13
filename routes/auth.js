@@ -19,6 +19,7 @@ router.get('/signup', authController.getSignUp);
 
 //POST Routes for SignUp
 router.post('/signup', [
+        //Input Validation using the express-validator package
         check('email')
         .isEmail()
         .withMessage('Invalid email.')
@@ -26,7 +27,7 @@ router.post('/signup', [
             return User.findOne({ email: value }).then(userDoc => {
                 if (userDoc) {
                     return Promise.reject(
-                        'Email already registred. Try a different one!'
+                        'Email already registred. Please try a different one!'
                     );
                 }
             });
@@ -48,9 +49,22 @@ router.post('/signup', [
             return true;
         })
     ],
+    //make to the controler with the proper error messages or clean
     authController.postSignUp);
 
 //POST Routes for Login 
-router.post('/login', authController.postLogin);
+router.post('/login', [
+        //Input Validation using the express-validator package
+        body('email')
+        .isEmail()
+        .withMessage('Please enter a valid email address.')
+        .normalizeEmail(),
+        body('password', 'Invalid Password.')
+        .isLength({ min: 5 })
+        .isAlphanumeric()
+        .trim()
+    ],
+    //make to the controler with the proper error messages or clean
+    authController.postLogin);
 
 module.exports = router;
