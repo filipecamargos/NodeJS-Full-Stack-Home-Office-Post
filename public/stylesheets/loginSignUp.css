@@ -80,6 +80,17 @@
 
 .container-form .btn {
     width: 100px;
+    height: 45px;
+}
+
+
+/******************************
+Erro messages styles for forms
+*******************************/
+
+.erroMessage {
+    margin-top: 5px;
+    color: #f10404;
 }
 
 
