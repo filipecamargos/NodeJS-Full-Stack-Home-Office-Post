@@ -22,6 +22,7 @@ const homeofficeSession = new MongoDBStore({
     uri: MONGODB_URL,
     collection: 'sessions'
 });
+
 //Initialize csrf
 const csrfProtection = csrf()
 

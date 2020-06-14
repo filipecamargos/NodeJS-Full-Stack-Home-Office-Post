@@ -13,6 +13,5 @@ exports.home = (req, res, next) => {
 
 //Joab Board Controller
 exports.jobBoard = (req, res, next) => {
-    console.log("made")
     res.render('pages/jobboard');
 }

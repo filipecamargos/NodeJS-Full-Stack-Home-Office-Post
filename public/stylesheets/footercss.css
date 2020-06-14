@@ -2,12 +2,13 @@
 
 .top-footer {
     background-color: #F6F6F8;
-    height: 150px;
+    height: 175px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     color: #002E5D;
+    padding-top: 25px;
 }
 
 .top-footer h4 {
