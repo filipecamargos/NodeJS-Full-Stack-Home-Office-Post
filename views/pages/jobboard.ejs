@@ -1,16 +1,22 @@
 <%- include('../includes/loggedHeadNav.ejs') %>
     <main>
-        <%- include('../includes/foot.ejs') %>
-            <%- include('../includes/foot.ejs') %>
-                <%- include('../includes/foot.ejs') %>
-                    <%- include('../includes/foot.ejs') %>
-                        <%- include('../includes/foot.ejs') %>
-                            <%- include('../includes/foot.ejs') %>
-                                <%- include('../includes/foot.ejs') %>
-                                    <%- include('../includes/foot.ejs') %>
-                                        <%- include('../includes/foot.ejs') %>
-                                            <%- include('../includes/foot.ejs') %>
-                                                <%- include('../includes/foot.ejs') %>
+        <div class="container">
+            <% data.jobs.forEach(element => { %>
+                <div id=team03>
+                    <h2>
+                        <%= element.title %>
+                    </h2>
+                    <a href="<%= element.url %>"><button>"Apply"</button></a>
+                    <h2>
+                        DATA POSTED:
+                        <%= element.publication_date %>
+                    </h2>
+
+                    <%- element.description %>
+
+                </div>
+                <% }); %>
+        </div>
 
     </main>
     <%- include('../includes/foot.ejs') %>

@@ -1,1 +1,27 @@
- 
+#logged-in-nav {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+#logged-in-nav .navbar-toggle {
+    background-color: black;
+}
+
+#logged-in-nav a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+#logged-in-nav .nav-a:hover {
+    color: #AA2626;
+    margin-top: -2px;
+}
+
+.main-log {
+    margin-top: -4px;
+}
+
+.glyphicon {
+    color: #AA2626;
+}

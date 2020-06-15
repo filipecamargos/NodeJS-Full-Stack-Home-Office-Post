@@ -1,3 +1,5 @@
+const https = require('https');
+
 /*************************************************
  * GET CONTROLER FOR HOME 
  * ***********************************************/
@@ -14,11 +16,36 @@ exports.home = (req, res, next) => {
 
 //Joab Board Controller
 exports.jobBoard = (req, res, next) => {
-    res.render('pages/jobboard', {
+    //Connnect to the API
+    https.get("https://remotive.io/api/remote-jobs", (ress) => {
+
+        //variable to store hte chunk data
+        data = [];
+
+        ress.on("data", (chunk) => {
+            data.push(chunk);
+        });
+
+        ress.on("end", () => {
+            const parsedData = JSON.parse(Buffer.concat(data).toString());
+            res.render('pages/jobboard', {
+                title: 'HOME OFFICE POST | Job Board',
+                home: false,
+                login: false,
+                singUp: false,
+                board: true,
+                data: parsedData
+            });
+
+        });
+    });
+
+
+    /*res.render('pages/jobboard', {
         title: 'HOME OFFICE POST | Job Board',
         home: false,
         login: false,
         singUp: false,
         board: true
-    });
+    });*/
 }
