@@ -20,6 +20,7 @@ exports.getLogin = (req, res, next) => {
         home: false,
         login: true,
         singUp: false,
+        board: false,
         errorMessage: message,
         oldInput: {
             email: '',
@@ -44,6 +45,7 @@ exports.getSignUp = (req, res, next) => {
         home: false,
         login: false,
         singUp: true,
+        board: false,
         errorMessage: message,
         oldInput: {
             email: '',
@@ -72,6 +74,7 @@ exports.postSignUp = (req, res, next) => {
             home: false,
             login: false,
             singUp: true,
+            board: false,
             errorMessage: errors.array()[0].msg,
             oldInput: {
                 email: email,
@@ -120,6 +123,7 @@ exports.postLogin = (req, res, next) => {
             home: false,
             login: true,
             singUp: false,
+            board: false,
             errorMessage: errors.array()[0].msg,
             oldInput: {
                 email: email,
@@ -138,6 +142,7 @@ exports.postLogin = (req, res, next) => {
                     home: false,
                     login: true,
                     singUp: false,
+                    board: false,
                     errorMessage: 'Invalid email or password.',
                     oldInput: {
                         email: email,
@@ -164,6 +169,7 @@ exports.postLogin = (req, res, next) => {
                         home: false,
                         login: true,
                         singUp: false,
+                        board: false,
                         oldInput: {
                             email: email,
                             password: password
@@ -186,7 +192,7 @@ exports.postLogin = (req, res, next) => {
 /********************************************
  * POST for LOG OUT
  */
-exports.postLogOut = (req, res, next) => {
+exports.getLogOut = (req, res, next) => {
     //Detroy the Session
     req.session.destroy(err => {
         res.redirect('/');

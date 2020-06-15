@@ -7,11 +7,18 @@ exports.home = (req, res, next) => {
         title: 'HOME OFFICE POST | Home',
         home: true,
         login: false,
-        singUp: false
+        singUp: false,
+        board: false,
     });
 };
 
 //Joab Board Controller
 exports.jobBoard = (req, res, next) => {
-    res.render('pages/jobboard');
+    res.render('pages/jobboard', {
+        title: 'HOME OFFICE POST | Job Board',
+        home: false,
+        login: false,
+        singUp: false,
+        board: true
+    });
 }

@@ -35,7 +35,8 @@ body {
 }
 
 .glyphicon-user,
-.glyphicon {
+.glyphicon,
+.glyphicon-home {
     color: #9B0101;
 }
 
