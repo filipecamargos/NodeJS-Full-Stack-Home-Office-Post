@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+#board-container {
+    display: grid;
+    margin-bottom: 16px;
+    grid-template-columns: 300px 1fr;
+}
+
+.job-display-side-bar {
+    overflow: auto;
+    background-color: #F6F6F8;
+    padding-left: 10px;
+    height: 600px;
+}
+
+.job-sub-nav {
+    padding-left: 250px;
+}
+
+.job-basic-info h3,
+h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.job-basic-info {
+    border-style: solid;
+    border-bottom: 10cm;
+    border-color: aqua;
+}

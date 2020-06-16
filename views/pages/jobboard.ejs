@@ -1,22 +1,52 @@
 <%- include('../includes/loggedHeadNav.ejs') %>
     <main>
-        <div class="container">
-            <% data.jobs.forEach(element => { %>
-                <div id=team03>
-                    <h2>
-                        <%= element.title %>
-                    </h2>
-                    <a href="<%= element.url %>"><button>"Apply"</button></a>
-                    <h2>
-                        DATA POSTED:
-                        <%= element.publication_date %>
-                    </h2>
-
-                    <%- element.description %>
-
+        <div id="board-container">
+            <div class="job-display-side-bar">
+                <span id="job-top"></span>
+                <div class="job-sub-nav">
+                    <a class="nav-a" href="#job-bottom"><span class="glyphicon glyphicon-triangle-bottom"></span></a>
                 </div>
-                <% }); %>
-        </div>
+                <% data.jobs.forEach(element => { %>
+                    <div class="job-basic-info">
+                        <h3>
+                            <%= element.title %>
+                        </h3>
+                        <h3>
+                            <%= element.company_name %>
+                        </h3>
+                        <h4>
+                            <span class="glyphicon glyphicon-map-marker" class="job-icon"></span>
+                            <% if(element.candidate_required_location.length < 2) {%>
+                                Not Specified
+                                <%} else { %>
+                                    <%= element.candidate_required_location %>
+                                        <% }  %>
+                                            &nbsp &nbsp<span class="glyphicon glyphicon-briefcase" class="job-icon"></span>
+                                            <% if(element.job_type != "full_time") {%>
+                                                <%= element.job_type %>
+                                                    <%} else { %>
+                                                        Full Time
+                                                        <% }  %>
+                        </h4>
+                        <h4>
+                            <span class="glyphicon glyphicon-time" class="job-icon"></span>
+                            <%= element.publication_date.replace("T", " ") %>
+                        </h4>
+                        <input type="hidden" value="<%= element.job_type.id%>">
+                    </div>
 
+                    <% }); %>
+                        <span id="job-bottom"></span>
+                        <div class="job-sub-nav">
+                            <a class="nav-a" href="#job-top"><span class="glyphicon glyphicon-triangle-top"></span></a>
+                        </div>
+
+            </div>
+
+            <div class="job-display-description">
+
+            </div>
+
+        </div>
     </main>
     <%- include('../includes/foot.ejs') %>

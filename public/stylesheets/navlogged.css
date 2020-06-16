@@ -7,10 +7,18 @@
     background-color: black;
 }
 
+.navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+
 #logged-in-nav a {
     font-size: 16px;
     font-weight: bold;
     color: #000000;
+}
+
+.navbar-nav li:hover {
+    color: none;
 }
 
 #logged-in-nav .nav-a:hover {
