@@ -33,7 +33,8 @@
                             <%= element.publication_date.replace("T", " ") %>
                         </h4>
                         <div class="description" hidden>
-                            <%= element.description %>"></div>
+                            <%= element.description %>">
+                        </div>
                     </div>
 
                     <% }); %>
@@ -44,13 +45,29 @@
             </div>
 
             <div class="job-display-description">
-                <h2 id="jobTitle"></h2>
+                <h2 id="jobTitle">
+                    <%= data.jobs[0].title %>
+                </h2>
                 <div>
-                    <h3 id="jobCompany"></h3>
-                    <h3 id="jobLocation"></h3>
+                    <h3 id="jobCompany">
+                        <%= data.jobs[0].company_name %>
+                    </h3>
+                    <h3 id="jobLocation">
+                        <% if(data.jobs[0].candidate_required_location.length < 2) {%>
+                            Not Specified
+                            <%} else { %>
+                                <%= data.jobs[0].candidate_required_location %>
+                                    <% }  %>
+                                        <% if(data.jobs[0].job_type != "full_time") {%>
+                                            <%= data.jobs[0].job_type %>
+                                                <%} else { %>
+                                                    Full Time
+                                                    <% }  %>
+                    </h3>
                 </div>
                 <button>Apply Now</button>
                 <div id="jobDescription">
+                    <%- data.jobs[0].description %>">
                 </div>
 
 
