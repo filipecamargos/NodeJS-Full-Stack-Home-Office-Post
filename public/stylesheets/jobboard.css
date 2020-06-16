@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+main {
+    margin-top: -20px;
+}
+
 #board-container {
     display: grid;
     margin-bottom: 16px;
@@ -26,8 +30,8 @@
     text-decoration: none;
 }
 
-.job-basic-info h3,
-h4 {
+.job-basic-info h4,
+.job-basic-info h3 {
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
 }
@@ -42,6 +46,7 @@ h4 {
 .job-basic-info:hover {
     background-color: #ffffff;
     cursor: pointer;
+    border-radius: 6px;
 }
 
 
@@ -49,6 +54,21 @@ h4 {
 
 .job-display-description {
     overflow: auto;
-    padding: 1.5em;
+    padding: 2em;
     height: 600px;
+    background-color: #F6F6F8;
 }
+
+.jod-decription-cleanArea {
+    background-color: #ffffff;
+    padding: 1.6em;
+    border-radius: 6px;
+}
+
+#jobTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.company-details {}
