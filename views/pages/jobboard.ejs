@@ -23,11 +23,15 @@
                                     <%= element.candidate_required_location %>
                                         <% }  %> </span> &nbsp &nbsp<span class="glyphicon glyphicon-briefcase" class="job-icon"></span>
                             <span class="job_type">
-                                            <% if(element.job_type != "full_time") {%>
-                                                <%= element.job_type %>
-                                                    <%} else { %>
-                                                        Full Time
-                                                        <% }  %></span>
+                                            <% if (element.job_type == "full_time") {%>
+                                                Full Time
+                                                    <%} else if (element.job_type == "contract"){ %>
+                                                        Contract
+                                                        <% } else if (element.job_type == "other") {%>
+                                                            Other
+                                                        <% } else { %>
+                                                            Not Specified
+                                                            <% } %></span>
                         </h4>
                         <h4 class="publication_date">
                             <span class="glyphicon glyphicon-time" class="job-icon"></span>
@@ -47,10 +51,14 @@
 
             <div class="job-display-description">
                 <div class="jod-decription-cleanArea">
-                    <div>
+                    <div class="job-top-display">
                         <h2 id="jobTitle">
                             <%= data.jobs[0].title %>
                         </h2>
+                        <div class="save-apply-buttons">
+                            <button>Save</button>
+                            <button>Apply</button>
+                        </div>
                     </div>
                     <hr>
                     <div class="company-details">
