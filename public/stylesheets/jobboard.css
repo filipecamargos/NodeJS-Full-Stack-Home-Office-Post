@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@700&display=swap');
 main {
     margin-top: -20px;
 }
@@ -36,10 +36,15 @@ main {
     font-size: 15px;
 }
 
-.job-basic-info {
+.job-basic-info,
+.job-sub-nav {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: #777770;
+    padding: 1em;
+}
+
+.job-sub-nav-down {
     padding: 1em;
 }
 
@@ -71,4 +76,16 @@ main {
     font-size: 30px;
 }
 
-.company-details {}
+.company-details {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.company-details .icon-info {
+    font-size: 15px;
+}
+
+hr {
+    height: 0.8px;
+    background: #F6F6F8;
+}
