@@ -4,17 +4,17 @@
             <div class="job-display-side-bar">
                 <span id="job-top"></span>
                 <div class="job-sub-nav">
-                    <a class="nav-a" href="#job-bottom"><span class="glyphicon glyphicon-triangle-bottom"></span></a>
+                    <a class="nav-icon-job" href="#job-bottom"><span class="glyphicon glyphicon-triangle-bottom"></span>BOTTOM</a>
                 </div>
                 <% data.jobs.forEach(element => { %>
                     <div class="job-basic-info">
-                        <h3>
+                        <h3 class="title">
                             <%= element.title %>
                         </h3>
-                        <h3>
+                        <h3 class="company_name">
                             <%= element.company_name %>
                         </h3>
-                        <h4>
+                        <h4 class="candidate_required_location">
                             <span class="glyphicon glyphicon-map-marker" class="job-icon"></span>
                             <% if(element.candidate_required_location.length < 2) {%>
                                 Not Specified
@@ -28,25 +28,36 @@
                                                         Full Time
                                                         <% }  %>
                         </h4>
-                        <h4>
+                        <h4 class="publication_date">
                             <span class="glyphicon glyphicon-time" class="job-icon"></span>
                             <%= element.publication_date.replace("T", " ") %>
                         </h4>
-                        <input type="hidden" value="<%= element.job_type.id%>">
+                        <div class="description" hidden>
+                            <%= element.description %>"></div>
                     </div>
 
                     <% }); %>
                         <span id="job-bottom"></span>
                         <div class="job-sub-nav">
-                            <a class="nav-a" href="#job-top"><span class="glyphicon glyphicon-triangle-top"></span></a>
+                            <a class="nav-icon-job" href="#job-top"><span class="glyphicon glyphicon-triangle-top"></span>TOP</a>
                         </div>
-
             </div>
 
             <div class="job-display-description">
+                <h2 id="jobTitle"></h2>
+                <div>
+                    <h3 id="jobCompany"></h3>
+                    <h3 id="jobLocation"></h3>
+                </div>
+                <button>Apply Now</button>
+                <div id="jobDescription">
+                </div>
+
+
 
             </div>
 
         </div>
     </main>
+
     <%- include('../includes/foot.ejs') %>

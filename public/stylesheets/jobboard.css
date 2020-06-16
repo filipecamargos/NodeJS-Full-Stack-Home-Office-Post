@@ -1,19 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 #board-container {
     display: grid;
     margin-bottom: 16px;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 400px 1fr;
 }
 
 .job-display-side-bar {
     overflow: auto;
     background-color: #F6F6F8;
-    padding-left: 10px;
+    padding-left: 12px;
+    padding-right: 8px;
     height: 600px;
 }
 
-.job-sub-nav {
-    padding-left: 250px;
+.nav-icon-job {
+    font-weight: bold;
+    font-size: 11px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-icon-job:hover {
+    color: #AA2626;
+    text-decoration: none;
 }
 
 .job-basic-info h3,
@@ -23,7 +33,22 @@ h4 {
 }
 
 .job-basic-info {
-    border-style: solid;
-    border-bottom: 10cm;
-    border-color: aqua;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #777770;
+    padding: 1em;
+}
+
+.job-basic-info:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+
+/*DESCRIPTION*/
+
+.job-display-description {
+    overflow: auto;
+    padding: 1.5em;
+    height: 600px;
 }
