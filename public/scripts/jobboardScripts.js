@@ -1,6 +1,5 @@
 $(function() {
 
-
     //Set the values for the jobs detaisl
     $(".job-basic-info").click(function() {
         // Get the Information
@@ -10,11 +9,7 @@ $(function() {
         var job_type = $(this).find('span.job_type').text();
         var description = $(this).find('div.description').text();
         var url = $(this).find('#url').text();
-
         var id = $(this).find('#id').text();
-
-
-        console.log(id + "\n" + url)
 
         //Set the Information
         $("#jobTitle").html(title);
@@ -23,15 +18,10 @@ $(function() {
         $("#jobDescription").html(description);
         $("#JobType").html(job_type);
         $("#JobURL").attr('href', url);
+        $('#jobID').val(id);
 
         //The clicked div get a background color marked
         $(".job-basic-info").css("background-color", "#F6F6F8")
-        $(this).css("background-color", "#ffffff")
-
-
-
-
+        $(this).css("background-color", "#ffffff");
     });
-
-
 })

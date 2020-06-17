@@ -18,23 +18,9 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    preferedJobs: {
-        jobs: [{
-            jobId: {
-                type: Schema.Types.ObjectId,
-                ref: "Job",
-                required: true
-            }
-        }]
 
-    }
+    Savedjobs: [String]
 });
-
-/***********************************
- * HERE ARE THIS SCHEMA METHODS
- ***********************************/
-
-
 
 //Export the model and give a name to as a parameter this will be your blue print
 module.exports = mongoose.model('User', userSchema);

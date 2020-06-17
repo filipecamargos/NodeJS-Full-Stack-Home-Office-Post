@@ -9,6 +9,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 
+const User = require("./models/user");
 
 // Connecct to Heroku || localhost:5000 || data base
 const PORT = process.env.PORT || 3000
@@ -64,8 +65,19 @@ app.use(
 
 
 //CSRF Middleware | Flash 
-app.use(csrfProtection);
-app.use(flash());
+app.use(csrfProtection)
+    .use(flash())
+    .use((req, res, next) => {
+        if (!req.session.user) {
+            return next();
+        }
+        User.findById(req.session.user._id)
+            .then(user => {
+                req.user = user;
+                next();
+            })
+            .catch(err => console.log(err));
+    })
 
 /**************************
  * Note You might need to revise the status for
@@ -73,7 +85,7 @@ app.use(flash());
  */
 
 //CSRF Middleware
-app.use((req, res, next) => {
+.use((req, res, next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
     res.locals.csrfToken = req.csrfToken();
     next();

@@ -1,4 +1,7 @@
 const https = require('https');
+const crypto = require('crypto');
+const User = require('../models/user');
+const user = require('../models/user');
 
 /*************************************************
  * GET CONTROLER FOR HOME 
@@ -14,7 +17,9 @@ exports.home = (req, res, next) => {
     });
 };
 
-//Joab Board Controller
+/*************************************************
+ * GET JOB BOARD CONTROLLER
+ * ***********************************************/
 exports.jobBoard = (req, res, next) => {
     //Connnect to the API
     https.get("https://remotive.io/api/remote-jobs", (ress) => {
@@ -39,4 +44,21 @@ exports.jobBoard = (req, res, next) => {
 
         });
     });
+}
+
+
+/*************************************************
+ * POST SAVED JOB
+ * ***********************************************/
+exports.postSaved = (req, res, next) => {
+    //Receive the JOB ID
+    const jobID = req.body.jobID;
+    console.log(req.user);
+    console.log(jobID);
+    //Check if item is not already add
+    req.user.Savedjobs.push(jobID);
+    req.user.save();
+    res.redirect('/jobboard');
+
+
 }
