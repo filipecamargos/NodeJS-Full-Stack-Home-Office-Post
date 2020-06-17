@@ -39,13 +39,4 @@ exports.jobBoard = (req, res, next) => {
 
         });
     });
-
-
-    /*res.render('pages/jobboard', {
-        title: 'HOME OFFICE POST | Job Board',
-        home: false,
-        login: false,
-        singUp: false,
-        board: true
-    });*/
 }

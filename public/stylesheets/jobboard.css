@@ -41,16 +41,24 @@ main {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: #777770;
-    padding: 1em;
 }
 
+.job-sub-nav,
 .job-sub-nav-down {
-    padding: 1em;
+    padding: 0.6em;
 }
 
 .job-basic-info:hover {
-    background-color: #ffffff;
     cursor: pointer;
+    border-radius: 6px;
+}
+
+.test {
+    padding: 1em;
+}
+
+.test:hover {
+    background-color: #ffffff;
     border-radius: 6px;
 }
 
@@ -94,4 +102,12 @@ hr {
 .job-top-display {
     display: flex;
     justify-content: space-between;
+}
+
+.save-apply-buttons {
+    display: flex;
+}
+
+.btn-success {
+    margin-left: 5px;
 }

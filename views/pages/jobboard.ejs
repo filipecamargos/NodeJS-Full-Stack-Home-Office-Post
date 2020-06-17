@@ -1,28 +1,33 @@
 <%- include('../includes/loggedHeadNav.ejs') %>
     <main>
         <div id="board-container">
+            <!--SIDE BAR-->
             <div class="job-display-side-bar">
                 <span id="job-top"></span>
                 <div class="job-sub-nav">
                     <a class="nav-icon-job" href="#job-bottom"><span class="glyphicon glyphicon-triangle-bottom"></span>BOTTOM</a>
                 </div>
                 <% data.jobs.forEach(element => { %>
+                    <!--VALUES THAT NEEDS TO PASSED HIDDEN TO BE USED LATER FOR THE URL AND JOB ID-->
                     <div class="job-basic-info">
-                        <h3 class="title">
-                            <%= element.title %>
-                        </h3>
-                        <h3 class="company_name">
-                            <%= element.company_name %>
-                        </h3>
-                        <h4 class="candidate_required_location">
-                            <span class="glyphicon glyphicon-map-marker" class="job-icon"></span>
-                            <span class="candidate_required_location">
+                        <span id="id" hidden>  <%= element.id %></span>
+                        <span id="url" hidden> <%= element.url %></span>
+                        <div class="test">
+                            <h3 class="title">
+                                <%= element.title %>
+                            </h3>
+                            <h3 class="company_name">
+                                <%= element.company_name %>
+                            </h3>
+                            <h4 class="candidate_required_location">
+                                <span class="glyphicon glyphicon-map-marker" class="job-icon"></span>
+                                <span class="candidate_required_location">
                             <% if(element.candidate_required_location.length < 2) {%>
                                 Not Specified
                                 <%} else { %>
                                     <%= element.candidate_required_location %>
                                         <% }  %> </span> &nbsp &nbsp<span class="glyphicon glyphicon-briefcase" class="job-icon"></span>
-                            <span class="job_type">
+                                <span class="job_type">
                                             <% if (element.job_type == "full_time") {%>
                                                 Full Time
                                                     <%} else if (element.job_type == "contract"){ %>
@@ -32,13 +37,14 @@
                                                         <% } else { %>
                                                             Not Specified
                                                             <% } %></span>
-                        </h4>
-                        <h4 class="publication_date">
-                            <span class="glyphicon glyphicon-time" class="job-icon"></span>
-                            <%= element.publication_date.replace("T", " ") %>
-                        </h4>
-                        <div class="description" hidden>
-                            <%= element.description %>
+                            </h4>
+                            <h4 class="publication_date">
+                                <span class="glyphicon glyphicon-time" class="job-icon"></span>
+                                <%= element.publication_date.replace("T", " ") %>
+                            </h4>
+                            <div class="description" hidden>
+                                <%= element.description %>
+                            </div>
                         </div>
                     </div>
 
@@ -48,17 +54,22 @@
                             <a class="nav-icon-job" href="#job-top"><span class="glyphicon glyphicon-triangle-top"></span>TOP</a>
                         </div>
             </div>
-
+            <!--DESCRIPTION VIEW-->
             <div class="job-display-description">
                 <div class="jod-decription-cleanArea">
                     <div class="job-top-display">
                         <h2 id="jobTitle">
                             <%= data.jobs[0].title %>
                         </h2>
-                        <div class="save-apply-buttons">
-                            <button>Save</button>
-                            <button>Apply</button>
-                        </div>
+                        <span>
+                            <div class="save-apply-buttons">
+                                <form method="POST" action="/saved">
+                                    <input type="hidden" value="">
+                                    <button type="submit" class="btn btn-primary" >Save</button>
+                                </form>
+                                <a id="JobURL" href="" target="_blank"><button class="btn btn-success">Apply</button></a>
+                            </div>
+                        </span>
                     </div>
                     <hr>
                     <div class="company-details">
@@ -76,12 +87,16 @@
                                     <%= data.jobs[0].candidate_required_location %>
                                         <% }  %></span> &nbsp &nbsp<span class="glyphicon glyphicon-briefcase" class="job-icon"></span>
                             <span id="JobType">
-                            <% if(data.jobs[0].job_type != "full_time") {%>
-                                <%= data.jobs[0].job_type %>
-                                    <%} else { %>
-                                        Full Time
-                                        <% }  %>
-                                    </span>
+                                <% if (data.jobs[0].job_type == "full_time") {%>
+                                    Full Time
+                                        <%} else if (data.jobs[0].job_type == "contract"){ %>
+                                            Contract
+                                            <% } else if (data.jobs[0].job_type == "other") {%>
+                                                Other
+                                            <% } else { %>
+                                                Not Specified
+                                                <% } %></span>
+                            </span>
                         </h3>
                     </div>
                     <hr>
