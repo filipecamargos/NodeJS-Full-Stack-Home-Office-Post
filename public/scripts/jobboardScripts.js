@@ -24,4 +24,22 @@ $(function() {
         $(".job-basic-info").css("background-color", "#F6F6F8")
         $(this).css("background-color", "#ffffff");
     });
+
+    //SENT A POST METHODO TO THE SERVER ON CLICK
+    $("#buttonSave").click(function() {
+        //Get the JobID
+        var values = {
+                job_id: $.trim($("#jobID").val()),
+                _csrf: $("#token").val()
+            }
+            //using AJAX to post the click
+        $.ajax({
+            type: 'POST',
+            url: '/saved',
+            data: values,
+            error: function() {
+                console.log("Fail to sent data - POST AJAX /SAVED ");
+            }
+        })
+    });
 })

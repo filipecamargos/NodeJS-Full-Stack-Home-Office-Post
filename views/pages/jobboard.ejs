@@ -63,11 +63,11 @@
                         </h2>
                         <span>
                             <div class="save-apply-buttons">
-                                <form action="/saved" method="POST">
-                                    <input id="jobID" type="text" value="<%= data.jobs[0].id%>" name="jobID" hidden>
-                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                    <button type="submit" class="btn btn-primary" >Save</button>
-                                </form>
+                                <div>
+                                    <input id="jobID" type="text" value="<%= data.jobs[0].id%>" hidden>
+                                    <input id= "token" type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <button id="buttonSave" class="btn btn-primary" >Save</button>
+                                </div>
                                 <a id="JobURL" href="<%= data.jobs[0].url %>" target="_blank"><button class="btn btn-success">Apply</button></a>
                             </div>
                         </span>

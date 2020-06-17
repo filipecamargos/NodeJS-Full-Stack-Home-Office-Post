@@ -52,13 +52,15 @@ exports.jobBoard = (req, res, next) => {
  * ***********************************************/
 exports.postSaved = (req, res, next) => {
     //Receive the JOB ID
-    const jobID = req.body.jobID;
-    console.log(req.user);
-    console.log(jobID);
+    const jobID = req.body.job_id;
+
     //Check if item is not already add
     req.user.Savedjobs.push(jobID);
     req.user.save();
-    res.redirect('/jobboard');
 
+    //Testing
+    console.log(req.user);
+    console.log(req.body.job_id);
 
+    res.redirect('/jobboard')
 }
