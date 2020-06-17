@@ -53,11 +53,11 @@ main {
     border-radius: 6px;
 }
 
-.test {
+.in-job-basic-info {
     padding: 1em;
 }
 
-.test:hover {
+.in-job-basic-info:hover {
     background-color: #ffffff;
     border-radius: 6px;
 }
@@ -110,4 +110,33 @@ hr {
 
 .btn-success {
     margin-left: 5px;
+}
+
+
+/*RESPONSIVENESS*/
+
+@media screen and (max-width: 850px) {
+    #board-container {
+        display: block;
+    }
+    .job-display-side-bar {
+        display: flex;
+        height: 165px;
+        overflow: scroll;
+    }
+    .job-basic-info {
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-right-color: #777770;
+        min-width: 400px;
+        border-bottom: none;
+    }
+    .job-sub-nav,
+    .job-sub-nav-down {
+        display: none;
+    }
+    .job-basic-info h4,
+    .job-basic-info h3 {
+        padding-left: 1em;
+    }
 }
