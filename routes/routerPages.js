@@ -19,8 +19,15 @@ router.get('/', pageController.home);
 //Joab Board Router
 router.get('/jobboard', auth, pageController.jobBoard);
 
-//Joab Board Router
+//POST Joab Board Router save
 router.post('/saved', auth, pageController.postSaved)
+
+//GET the saved jobs
+router.get('/saved', auth, pageController.getSaved)
+
+//POST removeJob
+router.post('/removejob', auth, pageController.removeJobs)
+
 
 
 module.exports = router;

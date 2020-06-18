@@ -1,5 +1,9 @@
 $(function() {
 
+    //THe first Job ITEM on the overflow div always starts marked as whit background!
+    var firstJobItem = document.getElementsByClassName("job-basic-info").item(0);
+    $(firstJobItem).css("background-color", "#ffffff");
+
     //Set the values for the jobs detaisl
     $(".job-basic-info").click(function() {
         // Get the Information
@@ -25,21 +29,23 @@ $(function() {
         $(this).css("background-color", "#ffffff");
     });
 
-    //SENT A POST METHODO TO THE SERVER ON CLICK
-    $("#buttonSave").click(function() {
-        //Get the JobID
-        var values = {
-                job_id: $.trim($("#jobID").val()),
-                _csrf: $("#token").val()
-            }
-            //using AJAX to post the click
-        $.ajax({
-            type: 'POST',
-            url: '/saved',
-            data: values,
-            error: function() {
-                console.log("Fail to sent data - POST AJAX /SAVED ");
-            }
-        })
-    });
+    //Decided to comment it out because I want my icon with number of jobs display and getting updated everytime a job is saved
+    // //SENT A POST METHODO TO THE SERVER ON CLICK
+    // $("#buttonSave").click(function() {
+    //     //Get the JobID
+    //     var values = {
+    //             job_id: $.trim($("#jobID").val()),
+    //             _csrf: $("#token").val()
+    //         }
+    //         //using AJAX to post the click
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/saved',
+    //         data: values,
+    //         error: function() {
+    //             console.log("Fail to sent data - POST AJAX /SAVED ");
+    //         }
+    //     })
+
+    // });
 })

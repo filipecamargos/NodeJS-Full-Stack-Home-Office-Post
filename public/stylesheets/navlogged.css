@@ -37,3 +37,13 @@
 .navbar-left {
     margin-top: 9.5px;
 }
+
+#savedNumber {
+    background-color: #E3E3E5;
+    margin-left: 3px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    padding: 0.2em;
+    color: #AA2626;
+}

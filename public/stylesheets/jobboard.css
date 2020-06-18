@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 main {
     margin-top: -20px;
 }
@@ -28,6 +29,16 @@ main {
 .nav-icon-job:hover {
     color: #AA2626;
     text-decoration: none;
+}
+
+
+/*Check if the page is marked*/
+
+.pageMarked {
+    border-bottom: solid;
+    border-bottom-color: #AA2626;
+    border-bottom-width: 3px;
+    color: #AA2626;
 }
 
 .job-basic-info h4,
@@ -110,6 +121,13 @@ hr {
 
 .btn-success {
     margin-left: 5px;
+}
+
+#noJobsSavedMesg {
+    padding-top: 20px;
+    padding-bottom: 200px;
+    color: #757575;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 
