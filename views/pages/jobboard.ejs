@@ -64,11 +64,9 @@
                         <span>
                             <div class="save-apply-buttons">
                                 <div>
-                                    <form method="POST" action="/saved">
-                                        <input id="jobID" name="job_id" type="text" value="<%= data.jobs[0].id%>" hidden>
-                                        <input id= "token" type="hidden" name="_csrf" value="<%= csrfToken %>">
-                                        <button id="buttonSave" class="btn btn-primary" >Save</button>
-                                    </form>
+                                    <input id="jobID" name="job_id" type="text" value="<%= data.jobs[0].id%>" hidden>
+                                    <input id= "token" type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                    <button id="buttonSave" class="btn btn-primary" >Save</button>
                                 </div>
                                 <a id="JobURL" href="<%= data.jobs[0].url %>" target="_blank"><button class="btn btn-success">Apply</button></a>
                             </div>

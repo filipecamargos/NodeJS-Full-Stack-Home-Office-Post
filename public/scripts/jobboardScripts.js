@@ -29,23 +29,30 @@ $(function() {
         $(this).css("background-color", "#ffffff");
     });
 
-    //Decided to comment it out because I want my icon with number of jobs display and getting updated everytime a job is saved
-    // //SENT A POST METHODO TO THE SERVER ON CLICK
-    // $("#buttonSave").click(function() {
-    //     //Get the JobID
-    //     var values = {
-    //             job_id: $.trim($("#jobID").val()),
-    //             _csrf: $("#token").val()
-    //         }
-    //         //using AJAX to post the click
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '/saved',
-    //         data: values,
-    //         error: function() {
-    //             console.log("Fail to sent data - POST AJAX /SAVED ");
-    //         }
-    //     })
+    //SENT A POST METHODO TO THE SERVER ON CLICK
+    $("#buttonSave").click(function() {
+        //Get the JobID
+        var values = {
+                job_id: $.trim($("#jobID").val()),
+                _csrf: $("#token").val()
+            }
+            //using AJAX to post the click
+        $.ajax({
+            type: 'POST',
+            url: '/saved',
+            data: values,
+            error: function() {
+                console.log("Fail to sent data - POST AJAX /SAVED ");
+            }
+        });
+    });
 
-    // });
+    $("#buttonSave").click(function() {
+
+        //Update the had so it can count the jobs saved!
+        $.get('/updatedNavCount', function(data) {
+            $('#myNavbar').html(data);
+        })
+
+    });
 })

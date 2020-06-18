@@ -1,4 +1,5 @@
 const https = require('https');
+const { render } = require('ejs');
 
 /*************************************************
  * THE IP IS LOADED HERE FOR BETTER PEFORMANCE WHEN
@@ -48,7 +49,7 @@ exports.jobBoard = (req, res, next) => {
         singUp: false,
         board: true,
         data: parsedData,
-        jobSavedNumber: ((req.user.Savedjobs.length - 1).toString()),
+        jobSavedNumber: ((req.user.Savedjobs.length).toString()),
         savedJobsID: req.user.Savedjobs
     });
 
@@ -102,7 +103,7 @@ exports.getSaved = (req, res, next) => {
         singUp: false,
         board: false,
         data: savedJobs,
-        jobSavedNumber: ((req.user.Savedjobs.length - 1).toString())
+        jobSavedNumber: ((req.user.Savedjobs.length).toString())
     });
 };
 
@@ -129,4 +130,16 @@ exports.removeJobs = (req, res, next) => {
 
 
     res.redirect('/saved');
+}
+
+/*************************************************
+ * POST REMOVE JOB
+ * ***********************************************/
+exports.updatedNavCount = (req, res, next) => {
+    var numberJobSaved = 1 + req.user.Savedjobs.length;
+    console.log(numberJobSaved);
+    res.render('pages/updatedNavCount', {
+        board: true,
+        jobSavedNumber: ((numberJobSaved).toString())
+    })
 }
