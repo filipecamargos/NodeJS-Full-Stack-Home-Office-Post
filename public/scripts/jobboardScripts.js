@@ -34,7 +34,7 @@ $(function() {
 
         //Update the had so it can count the jobs saved!
         $.get('/updatedNavCount', function(data) {
-            $('#myNavbar').html(data);
+            $('#logged-in-nav').html(data);
         })
 
         //Get the JobID
