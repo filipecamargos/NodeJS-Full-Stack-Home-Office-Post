@@ -23,6 +23,9 @@ https.get("https://remotive.io/api/remote-jobs", (ress) => {
     });
 });
 
+//Keep track of the number of jobs saved to display on the nav when the AJAX request
+var countingJobsTop = 0;
+
 /*************************************************
  * GET CONTROLER FOR HOME 
  * ***********************************************/
@@ -68,7 +71,8 @@ exports.postSaved = (req, res, next) => {
         req.user.save();
     }
 
-    console.log(req.user.Savedjobs);
+    //Update the counting jobs
+    countingJobsTop = req.user.Savedjobs.length;
 
     res.redirect('/jobboard')
 };
@@ -124,6 +128,9 @@ exports.removeJobs = (req, res, next) => {
         }
     });
 
+    //Update Couting Jobs
+    countingJobsTop = req.user.Savedjobs.length;
+
     //update the database
     req.user.Savedjobs = updatedJobsSaved;
     req.user.save();
@@ -133,13 +140,13 @@ exports.removeJobs = (req, res, next) => {
 }
 
 /*************************************************
- * POST REMOVE JOB
+ * GET JOB COUNT FOR NAV BAR
  * ***********************************************/
 exports.updatedNavCount = (req, res, next) => {
-    var numberJobSaved = 1 + req.user.Savedjobs.length;
-    console.log(numberJobSaved);
+
+    //TOP NAV UPDATE
     res.render('pages/updatedNavCount', {
         board: true,
-        jobSavedNumber: ((numberJobSaved).toString())
+        jobSavedNumber: ((countingJobsTop))
     })
 }
