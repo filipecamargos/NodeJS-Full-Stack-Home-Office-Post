@@ -59,7 +59,7 @@ exports.getSignUp = (req, res, next) => {
 /*************************************************
  * POST LOGIN | SING UP | LOG OUT
  * ***********************************************/
-//This controller will handle the POST Login Page
+//This controller will handle the POST Sing UP Page
 exports.postSignUp = (req, res, next) => {
     //User Information
     const email = req.body.email;
