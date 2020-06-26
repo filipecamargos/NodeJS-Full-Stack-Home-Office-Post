@@ -32,11 +32,6 @@ $(function() {
     //SENT A POST METHODO TO THE SERVER ON CLICK
     $("#buttonSave").click(function() {
 
-        //Update the had so it can count the jobs saved!
-        $.get('/updatedNavCount', function(data) {
-            $('#logged-in-nav').html(data);
-        })
-
         //Get the JobID
         var values = {
                 job_id: $.trim($("#jobID").val()),
@@ -51,6 +46,13 @@ $(function() {
                 console.log("Fail to sent data - POST AJAX /SAVED ");
             }
         });
+
+        setTimeout(function() {
+            //Update the had so it can count the jobs saved!
+            $.get('/updatedNavCount', function(data) {
+                $('#logged-in-nav').html(data);
+            })
+        }, 500)
 
     });
 })
