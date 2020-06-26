@@ -116,7 +116,7 @@ exports.getSaved = (req, res, next) => {
  * ***********************************************/
 exports.removeJobs = (req, res, next) => {
     //get the job id
-    const jobId = req.body.removeJobID;
+    const jobId = req.body.removeJobID.trim();
 
     //Store the updated array of saved jobs
     var updatedJobsSaved = [];
