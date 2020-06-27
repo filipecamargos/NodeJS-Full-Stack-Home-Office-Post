@@ -13,7 +13,7 @@ const User = require("./models/user");
 
 // Connecct to Heroku || localhost:5000 || data base
 const PORT = process.env.PORT || 3000
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://cs341:VfP2xOJvOONEBDfK@cluster0-c8oj0.mongodb.net/homeoffice?retryWrites=true&w=majority";
+const MONGODB_URL = process.env.MONGODB_URL || "#";
 
 //Initiliaze the express object to manager some of the functionality
 const app = express();
