@@ -1,2 +1,10 @@
 # Home-Office-Post-Full-Stack-Application
-Home Office Post is project that I created using HTML/CSS/JavaScript on the front end and NodeJs with a MongoDB data base on the back end. The application allows the user to sign up, login, search for remote jobs on the job board (Those are real jobs coming from an API), save and delete their favorite jobs. This application also follows the MVC model. Check it out https://safe-dawn-11858.herokuapp.com.
+After seeing many people losing their jobs because of the pandemic, I have decided to work on this application to help people who were looking for remote opening positions.
+
+Home Office Post is a web application that allows the user to create an account and have access to real remote jobs pulled from a Rest API.
+
+This application was developed from scratch using the following stack: NodeJs, MongoDB, JavaScript, Jquery, Ajax, HTML, CSS, Boostrap, and some other external libraries and packages.
+
+It follows the MVC pattern and includes router protection, user authentication, password encryption, form validation, error handling, protection against CSRF attacks.
+
+Check it out https://safe-dawn-11858.herokuapp.com.
