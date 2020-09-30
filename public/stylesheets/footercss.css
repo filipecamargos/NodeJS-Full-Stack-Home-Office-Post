@@ -1,5 +1,10 @@
 /*Footer*************/
 
+html,
+body {
+    height: 100%;
+}
+
 .top-footer {
     background-color: #F6F6F8;
     height: 175px;
@@ -47,6 +52,10 @@ footer h2 {
 
 .top-footer a:link {
     color: #002E5D;
+}
+
+#footer {
+    margin-bottom: -200px;
 }
 
 
