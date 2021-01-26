@@ -3,12 +3,15 @@ const crypto = require('crypto');
 const { validationResult } = require('express-validator/check');
 const nodemailer = require('nodemailer');
 
+//Config
+const Config = require("../configPrivatInfo")
+
 //Set up the transporter for the e-mail
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: Config.provider,
     auth: {
-        user: 'homeofficepost2020@gmail.com',
-        pass: 'homeoffice123'
+        user: Config.email,
+        pass: Config.pass
     }
 });
 

@@ -11,9 +11,12 @@ const flash = require('connect-flash');
 
 const User = require("./models/user");
 
+//import config
+const Config = require("./configPrivatInfo")
+
 // Connecct to Heroku || localhost:5000 || data base
 const PORT = process.env.PORT || 3000
-const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://cs341:VfP2xOJvOONEBDfK@cluster0-c8oj0.mongodb.net/homeoffice?retryWrites=true&w=majority";
+const MONGODB_URL = process.env.MONGODB_URL || Config.db;
 
 //Initiliaze the express object to manager some of the functionality
 const app = express();
@@ -29,7 +32,7 @@ const csrfProtection = csrf()
 
 //Setting up for deployin on Heroku
 const corsOptions = {
-    origin: "https://safe-dawn-11858.herokuapp.com/",
+    origin: Config.myUrl,
     optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
@@ -57,7 +60,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser({ extended: false }));
 app.use(
     session({
-        secret: 'Home Job 123',
+        secret: Config.mySecret,
         resave: false,
         saveUninitialized: false,
         store: homeofficeSession
