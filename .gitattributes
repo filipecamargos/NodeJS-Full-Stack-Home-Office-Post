@@ -1,5 +1,6 @@
 *.css linguist-detectable=false
 *.html linguist-detectable=false
 *.js linguist-detectable=true
+*.ejs linguist-detectable=false
 
 views/* linguist-vendored
